@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线图片压缩工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stars-container">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>在线图片压缩工具</h1>
+            <p>支持JPEG、PNG、WebP、GIF格式，最大20MB</p>
+        </header>
+
+        <main>
+            <div class="upload-container" id="dropZone">
+                <div class="upload-content">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <p>拖拽图片到这里或</p>
+                    <label class="upload-button">
+                        选择文件
+                        <input type="file" id="fileInput" multiple accept="image/*" hidden>
+                    </label>
+                    <p class="upload-hint">最多10张图片，每张不超过20MB</p>
+                </div>
+            </div>
+
+            <div class="compression-options">
+                <div class="compression-settings">
+                    <label>压缩设置：</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="compressionType" value="size" checked>
+                            <span>缩小优先</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="compressionType" value="normal">
+                            <span>普通压缩</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="compressionType" value="quality">
+                            <span>清晰优先</span>
+                        </label>
+                        <div class="size-limit">
+                            <span>目标大小：</span>
+                            <input type="number" id="targetSize" value="100" min="1" max="1000">
+                            <span>KB以内</span>
+                            <span class="info-icon" title="设置压缩后的目标文件大小">ⓘ</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="format-settings">
+                    <label>输出格式：</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="outputFormat" value="original" checked>
+                            <span>格式不变</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="outputFormat" value="jpg">
+                            <span>JPG格式</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-container" id="previewContainer"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
